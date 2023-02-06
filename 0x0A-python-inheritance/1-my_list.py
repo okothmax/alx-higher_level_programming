@@ -3,9 +3,11 @@
 
 
 class MyList(list):
-    """Implements sorted printing for the built-in list class."""
-
+    """extended version of list
+    """
     def print_sorted(self):
-        """Print a list in sorted ascending order."""
-        Newlist = sorted(self)
-        print(Newlist)
+        """prints the list in ascending order
+        """
+        copy = self[:]
+        copy.sort()
+        print(copy)
