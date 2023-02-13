@@ -7,7 +7,7 @@ import the parent class Rectangle
 from rectangle import Rectangle
 
 '''
-create the cild class Square that inherits from Rectangle
+create the child class Square that inherits from Rectangle
 '''
 
 class Square(Rectangle):
@@ -19,7 +19,7 @@ class Square(Rectangle):
         calling the super class to assign attributes from the parent class
         '''
         super().__init__(
-        size, size,  x, y, id
+        size, size, x, y, id
         )
     
     @property

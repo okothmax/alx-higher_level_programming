@@ -32,10 +32,10 @@ class Rectangle(Base):
         super().__init__(
             id
         )
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
 
     @property
     def width(self):
@@ -83,7 +83,7 @@ class Rectangle(Base):
         Raises a ValueError if x is less than zero
         '''
         if not isinstance(value, int):
-            raise TypeError('X must be an integer')
+            raise TypeError('x must be an integer')
         if value < 0:
             raise ValueError('x must be >= 0')
         self.__x = value
@@ -99,14 +99,14 @@ class Rectangle(Base):
         Raises a TypeError if y is not an integer
         Raises a ValueError if y is less than zero
         '''
-        if not isinstance(value, int):
+        if type(value) != int:
             raise TypeError('Y must be an integer')
         self.__y = value
 
     def area(self):
-        if self.__height == 0 or self.__width == 0:
+        if self.height == 0 or self.width == 0:
             return
-        return self.__height * self.__width
+        return self.height * self.width
     
     def display(self):
         if self.__height == 0 or self.__width == 0:
@@ -115,7 +115,9 @@ class Rectangle(Base):
         representation_x = []
         symbol = '#'
 
+        [print("") for y in range(self.y)]
         for i in range(self.__height):
+            [print(" ", end="") for x in range(self.x)]
             for j in range(self.__width):
                 representation_x.append(symbol)
             if i != (self.__height - 1):
@@ -124,7 +126,7 @@ class Rectangle(Base):
         return (''.join(representation_x))
     
     def __str__(self):
-        return f'[{self.__class__.__name__}] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}'
+        return f'[{self.__class__.__name__}] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}'
         
     def update(self, *args, **kwargs):
         """Update the Rectangle.
