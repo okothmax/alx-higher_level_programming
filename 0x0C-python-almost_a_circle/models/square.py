@@ -10,6 +10,7 @@ from rectangle import Rectangle
 create the child class Square that inherits from Rectangle
 '''
 
+
 class Square(Rectangle):
     '''
     create the public instance attribute size
@@ -18,17 +19,15 @@ class Square(Rectangle):
         '''
         calling the super class to assign attributes from the parent class
         '''
-        super().__init__(
-        size, size, x, y, id
-        )
-    
+        super().__init__(size, size, x, y, id)
+
     @property
     def size(self):
         '''
         get the size of one side of the square
         '''
         return self.width
-    
+
     @size.setter
     def size(self, value):
         '''
@@ -41,8 +40,9 @@ class Square(Rectangle):
         '''
         string representation of the class
         '''
-        return f'[{self.__class__.__name__}] ({self.id}) {self.x}/{self.y} - {self.size}'
-    
+        return f'[{self.__class__.__name__}]\
+                   ({self.id}) {self.x}/{self.y} - {self.size}'
+
     def update(self, *args, **kwargs):
         """Update the Square.
 
@@ -88,4 +88,4 @@ class Square(Rectangle):
         '''
         dictionary representation of the square
         '''
-        return {'id': self.id, 'size': self.size, 'x': self.x, 'y':self.y}
+        return {'id': self.id, 'size': self.size, 'x': self.x, 'y': self.y}

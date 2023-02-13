@@ -41,7 +41,7 @@ class Rectangle(Base):
     def width(self):
         ''' get the width '''
         return self.__width
-    
+
     @width.setter
     def width(self, value):
         '''set the width property
@@ -58,7 +58,7 @@ class Rectangle(Base):
     def height(self):
         ''' get the height '''
         return self.__height
-    
+
     @height.setter
     def height(self, value):
         '''set the height property
@@ -75,7 +75,7 @@ class Rectangle(Base):
     def x(self):
         ''' get x'''
         return self.__x
-    
+
     @x.setter
     def x(self, value):
         '''set x property
@@ -92,7 +92,7 @@ class Rectangle(Base):
     def y(self):
         ''' get y '''
         return self.__y
-    
+
     @y.setter
     def y(self, value):
         '''set the y property
@@ -107,7 +107,7 @@ class Rectangle(Base):
         if self.height == 0 or self.width == 0:
             return
         return self.height * self.width
-    
+
     def display(self):
         if self.__height == 0 or self.__width == 0:
             print("")
@@ -124,10 +124,11 @@ class Rectangle(Base):
                 representation_x.append('\n')
 
         return (''.join(representation_x))
-    
+
     def __str__(self):
-        return f'[{self.__class__.__name__}] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}'
-        
+        return f'[{self.__class__.__name__}] ({self.id}) {self.x}/{self.y}\
+                  - {self.width}/{self.height}'
+
     def update(self, *args, **kwargs):
         """Update the Rectangle.
 
