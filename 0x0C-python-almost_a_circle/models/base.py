@@ -1,20 +1,28 @@
 #!/usr/bin/python3
-"""
-creating the Base class
-"""
+
+"""Defines a base model class."""
 import json
 import csv
 import turtle
 
 
 class Base:
-    '''
-    private class attributes
-        nb_objects
-    '''
+    """Represent the base model.
+
+    Represents the "base" for all other classes in project 0x0C*.
+
+    Attributes:
+        __nb_objects (int): The number of instantiated Bases.
+    """
+
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """Initialize a new Base.
+
+        Args:
+            id (int): The identity of the new Base.
+        """
         if id is not None:
             self.id = id
         else:
@@ -23,20 +31,24 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        '''
-        returns the standard format of JSON from the pyhton dictionary format
-        '''
+        """Return the JSON serialization of a list of dicts.
+
+        Args:
+            list_dictionaries (list): A list of dictionaries.
+        """
         if list_dictionaries is None or list_dictionaries == []:
             return "[]"
-
         return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
-        '''
-        '''
-        file = cls.__name__ + ".json"
-        with open(file, "w") as jsonfile:
+        """Write the JSON serialization of a list of objects to a file.
+
+        Args:
+            list_objs (list): A list of inherited Base instances.
+        """
+        filename = cls.__name__ + ".json"
+        with open(filename, "w") as jsonfile:
             if list_objs is None:
                 jsonfile.write("[]")
             else:

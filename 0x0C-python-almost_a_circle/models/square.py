@@ -1,47 +1,32 @@
 #!/usr/bin/python3
 
-'''
-import the parent class Rectangle
-'''
-
-from rectangle import Rectangle
-
-'''
-create the child class Square that inherits from Rectangle
-'''
+"""Defines a square class."""
+from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-    '''
-    create the public instance attribute size
-    '''
-    def __int__(self, size, x=0, y=0, id=None):
-        '''
-        calling the super class to assign attributes from the parent class
-        '''
+    """Represent a square."""
+
+    def __init__(self, size, x=0, y=0, id=None):
+        """Initialize a new Square.
+
+        Args:
+            size (int): The size of the new Square.
+            x (int): The x coordinate of the new Square.
+            y (int): The y coordinate of the new Square.
+            id (int): The identity of the new Square.
+        """
         super().__init__(size, size, x, y, id)
 
     @property
     def size(self):
-        '''
-        get the size of one side of the square
-        '''
+        """Get/set the size of the Square."""
         return self.width
 
     @size.setter
     def size(self, value):
-        '''
-        set the size of the square
-        '''
         self.width = value
         self.height = value
-
-    def __str__(self):
-        '''
-        string representation of the class
-        '''
-        return f'[{self.__class__.__name__}]\
-                   ({self.id}) {self.x}/{self.y} - {self.size}'
 
     def update(self, *args, **kwargs):
         """Update the Square.
@@ -85,7 +70,15 @@ class Square(Rectangle):
                     self.y = v
 
     def to_dictionary(self):
-        '''
-        dictionary representation of the square
-        '''
-        return {'id': self.id, 'size': self.size, 'x': self.x, 'y': self.y}
+        """Return the dictionary representation of the Square."""
+        return {
+            "id": self.id,
+            "size": self.width,
+            "x": self.x,
+            "y": self.y
+        }
+
+    def __str__(self):
+        """Return the print() and str() representation of a Square."""
+        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
+                                                 self.width)
