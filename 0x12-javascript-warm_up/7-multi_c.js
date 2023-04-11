@@ -6,6 +6,6 @@ if (isNaN(x)) {
 } else {
   while (y < x) {
     console.log('C is fun');
-    y += 1
+    y += 1;
   }
 }
