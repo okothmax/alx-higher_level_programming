@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" 
+"""
 Displays all cities of a given state from the
 states table of the database hbtn_0e_4_usa.
 Safe from SQL injections.
@@ -19,4 +19,5 @@ if __name__ == "__main__":
                 INNER JOIN `states` as `s` \
                   ON `c`.`state_id` = `s`.`id` \
                 ORDER BY `c`.`id`")
-    print(", ".join([city[2] for city in cur.fetchall() if city[4] == sys.argv[4]]))
+    print(", ".join([city[2] for city in cur.fetchall()
+                     if city[4] == sys.argv[4]]))
